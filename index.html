@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator template</title>
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            float: left;
+            /* margin: 10px; */
+            background-image: url(../assets/bg.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         
+
+
+        }
+
+        /* .logo {
+            position: absolute;
+            text-decoration: none;
+            background-color: black;
+            height: 10%;
+            width: 100%;
+
+        } */
+
+   
+
+        .mainbody {
+            width: 500px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(150, 177, 192, 0.432);
+            border-radius: 20px;
+        }
+
+        table {
+            width: 400px;
+            height: 400px;
+        }
+
+        input[type="numbers"] {
+            border-radius: 10px;
+            text-align: right;
+            background-color: rgba(245, 245, 245, 0.466);
+            width: 89%;
+            padding: 20px;
+            height: 30px;
+        }
+
+        button {
+            border-radius: 5px;
+            color: black;
+            background-color: rgba(245, 245, 245, 0.479);
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+            border-color: rgba(0, 255, 255, 0.353);
+        }
+
+     @media screen and (max-width:600px) {
+ 
+        .mainbody {
+            width:360px;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(150, 177, 192, 0.432);
+            border-radius: 20px;
+        }
+   
+        input[type="numbers"] {
+            border-radius: 10px;
+            text-align: right;
+            background-color: rgba(245, 245, 245, 0.466);
+            width: 87%;
+            padding: 20px;
+            height: 30px;
+        }
+
+
+        /* table {
+            width: 500px;
+            height: 400px;
+        } */
+
+        
+     }
+
+        
+    </style>
+
+</head>
+
+<body>
+    <!-- <div class="logo">
+        <a href="/project calculator/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                <path
+                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+            </svg>
+        </a>
+
+
+    </div> -->
+
+
+
+        <div class="mainbody">
+            <table border="0">
+                <tr>
+                    <td colspan="4"><input type="numbers"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(236, 189, 189);" colspan="2"><button class="button" id="c">AC</button></td>
+                    <td><button class="button" id="%">%</button></td>
+                    <td><button class="button" id="set">SET</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button" id="+">+</button></td>
+                    <td><button class="button" id="1">1</button></td>
+                    <td><button class="button" id="2">2</button></td>
+                    <td><button class="button" id="3">3</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button" id="-">-</button></td>
+                    <td><button class="button" id="4">4</button></td>
+                    <td><button class="button" id="5">5</button></td>
+                    <td><button class="button" id="6">6</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button" id="*">*</button></td>
+                    <td><button class="button" id="7">7</button></td>
+                    <td><button class="button" id="8">8</button></td>
+                    <td><button class="button" id="9">9</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button" id="/">/</button></td>
+                    <td><button class="button" id="0">0</button></td>
+                    <td><button class="button" id="00">00</button></td>
+                    <td><button class="button" id="=">=</button></td>
+                </tr>
+
+
+
+
+
+            </table>
+
+
+
+
+
+        </div>
+
+    
+
+
+
+
+
+
+
+</body>
+<!-- <script src="../index/index.js"></script> -->
+
+<script>
+    let string = "";
+    let buttons = document.querySelectorAll('.button');
+    Array.from(buttons).forEach((button) => {
+        button.addEventListener('click', (e) => {
+            if (e.target.innerHTML == '=') {
+                string = eval(string);
+                document.querySelector('input').value =string;
+
+            }
+            else if (e.target.innerHTML == 'AC') {
+                string = " ";
+                document.querySelector('input').value =string;
+            }
+            else {
+                console.log(e.target)
+                string = string+e.target.innerHTML;
+                document.querySelector('input').value =string
+            }
+
+        })
+
+    })
+</script>
+
+
+
+
+</html>
